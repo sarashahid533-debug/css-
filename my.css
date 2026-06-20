@@ -1,0 +1,132 @@
+/* Step 2: Style overall page background and text font */
+body { /* Deep dark anime night sky */
+    background-color: #000000;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+/* HIDDEN LIGHTNING BLAST ELEMENT */
+.lightning-strike {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: #ffffff;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: overlay;
+}
+
+/* ANIMATION: Realistic triple lightning flash */
+@keyframes flash {
+    0%, 100% { opacity: 0; background: #0b0b12; }
+    10% { opacity: 0.9; background: radial-gradient(circle, #fff 10%, #ffe600 40%, #00d2ff 80%); }
+    12% { opacity: 0.2; }
+    14% { opacity: 0.9; background: radial-gradient(circle, #fff 5%, #ffb700 50%, #111 90%); }
+    18% { opacity: 0; }
+    50% { opacity: 0.8; background: #ffffff; }
+    53% { opacity: 0; }
+}
+
+/* HOVER EFFECT: TRIGGER LIGHTNING ANIMATION */
+body:has(.fact-file:hover) .lightning-strike {
+    animation: flash 0.6s ease-out infinite;
+}
+
+/* Steps 3-7: Premium Zenitsu haori card container */
+.fact-file {
+    /* Step 3: Yellow background decorated with custom geometric triangles */
+    background-color: #ffcc00; 
+    background-image: 
+        linear-gradient(45deg, #ffffff 25%, transparent 25%), 
+        linear-gradient(-45deg, #ffffff 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #ffffff 75%), 
+        linear-gradient(-45deg, transparent 75%, #ffffff 75%);
+    background-size: 40px 40px;
+    background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+    
+    color: #1a1a24;                  /* Step 3: High contrast dark slate text color */
+    width: 260px;                     /* Step 4: Width of the profile box */
+    padding: 25px;                   /* Step 5: Padding inside the box */
+    border: 4px solid #ff9900;        /* Step 6: Deep orange border border frame */
+    margin: 30px;                    /* Step 7: Screen separation margin */
+    
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+    z-index: 2;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform-style: preserve-3d;
+}
+
+/* HOVER EFFECT: CARD ELEVATION AND ELECTRIC NEON GLOW */
+.fact-file:hover {
+    transform: translateY(-10px) scale(1.05) rotateX(4deg);
+    border-color: #ffffff;
+    /* Massive electric golden aura engine */
+    box-shadow: 
+        0 0 20px #fff, 
+        0 0 40px #ffea00, 
+        0 0 80px #ff6a00, 
+        0 30px 60px rgba(0,0,0,0.8);
+}
+
+/* Step 8: Golden header element text */
+.animal-name {
+    color: #1a1a24;                  /* Made dark so it cuts perfectly over the triangles */
+    font-size: 22px;
+    text-align: center;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 8px;
+    border-radius: 8px;
+    margin-top: 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.fact-file:hover .animal-name {
+    color: #ff9900;
+    background: #1a1a24;
+    text-shadow: 0 0 8px #ffcc00;
+}
+
+/* Internal formatting for premium modern typography */
+.profile-details {
+    background: rgba(26, 26, 36, 0.9);
+    color: #ffffff;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 15px 0;
+    border-left: 4px solid #ff9900;
+}
+
+.profile-details p {
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin: 6px 0;
+    font-weight: bold;
+}
+
+.profile-details strong {
+    color: #ffcc00;
+}
+
+.cool-fact {
+    color: #ffffff;                  /* Swapped to bright white over a solid dark block for readability */
+    font-style: italic;
+    font-size: 13px;
+    line-height: 1.5;
+    background: #1a1a24;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 0;
+    border-bottom: 4px solid #ffcc00;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
